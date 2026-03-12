@@ -12,15 +12,16 @@ from routes.webhook import (
 )
 
 @asynccontextmanager
-async def lifespan():
+async def lifespan(_app: FastAPI):
     """
-    lifespan for app
+    Lifespan for the app
     """
 
     pool = await Oban.create_pool()
     oban = Oban(pool=pool, queues={"default": 10})
 
     async with oban:
+        # Start the Oban worker
         yield
 
 app = FastAPI(lifespan=lifespan)
