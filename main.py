@@ -11,7 +11,7 @@ from routes.webhook import (
 async def lifespan(app: FastAPI):
     pool = await Oban.create_pool()
     oban = Oban(pool=pool, queues={"default": 10})
-
+    
     async with oban:
         yield
 

@@ -1,1 +1,2 @@
 dsn = "postgresql://postgres:root@localhost:5432/fastapi_udon_db"
+metrics = true
