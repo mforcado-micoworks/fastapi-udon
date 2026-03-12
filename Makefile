@@ -9,4 +9,4 @@ setup:
 		-d postgres && oban install
 
 dev:
-	fastapi dev --reload
+	fastapi dev --reload & oban start
