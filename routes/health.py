@@ -13,4 +13,5 @@ async def root():
     """
     Health check endpoint
     """
+
     return {"message": "ok"}
